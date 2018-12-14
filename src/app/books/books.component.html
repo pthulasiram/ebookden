@@ -1,4 +1,5 @@
 <div class="blog-posts">
+ 
   <div class="row mx-m-25" *ngIf="books">
     <div class="col-12 col-md-6 px-25" *ngFor="let book of books;">
       <div class="blog-post-content">
@@ -11,7 +12,7 @@
             </div><!-- .entry-meta -->
           </header><!-- .entry-header -->
           <figure class="blog-post-thumbnail position-relative m-0">
-            <a href="#"><img [src]="(baseURL+book.coverurl)" alt=""></a>
+            <a href="#"><img [src]="(baseURL+book.coverurl)" alt="book.title"></a>
           </figure><!-- .blog-post-thumbnail -->
           <div class="entry-content">
             <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.</p>
@@ -25,15 +26,23 @@
 
 <div class="pagination flex flex-wrap justify-content-between align-items-center">
   <div class="col-12 col-lg-4 order-2 order-lg-1 mt-3 mt-lg-0">
-    <ul class="flex flex-wrap align-items-center order-2 order-lg-1 p-0 m-0" *ngIf="pages">
+   <!-- <ul>
+     <li *ngFor="let item of items$| async"> {{item.title}}</li>
+   </ul> -->
+    <ul class="flex flex-wrap align-items-center order-2 order-lg-1 p-0 m-0" *ngIf="(pages && pages >=3)">
       <li class="active" [class.active]="(currentPage==1)"><a href="#" (click)="loadPage(1)">1</a></li>
       <li class="active" [class.active]="(currentPage==2)"><a href="#" (click)="loadPage(2)">2</a></li>
       <li class="active" [class.active]="(currentPage==3)"><a href="#" (click)="loadPage(3)">3</a></li>
       <li class="active" [class.active]="(currentPage>3 && currentPage<pages)" *ngIf="currentPage<pages"><a href="#" (click)="loadPage(currentPage+1)" ><i class="fa fa-angle-right"></i></a></li>
+      <li class="active" [class.active]="(currentPage>3 && currentPage<pages)" *ngIf="currentPage==pages"><a href="#" (click)="loadPage(currentPage-1)" ><i class="fa fa-angle-left"></i></a></li>
+    </ul>
+    <ul class="flex flex-wrap align-items-center order-2 order-lg-1 p-0 m-0" *ngIf="(pages && pages < 3)">
+        <li class="active" [class.active]="(currentPage==1)"><a href="#" (click)="loadPage(1)">1</a></li>
+        <li class="active" [class.active]="(currentPage==2)"><a href="#" (click)="loadPage(2)">2</a></li>
     </ul>
   </div>
 
-  <div class="col-12 flex justify-content-start justify-content-lg-end col-lg-8 order-1 order-lg-2">
+  <div class="col-12 flex justify-content-start justify-content-lg-end col-lg-8 order-1 order-lg-2" *ngIf="(pages && pages >=3)">
     <div class="pagination-results flex flex-wrap align-items-center">
       <p class="m-0">Showing 1–3 of {{pages}} results</p>
 

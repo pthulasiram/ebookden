@@ -1,3 +1,116 @@
-<p>
-  book-detail works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-8">
+      <div class="col-12">
+        <div class="instructors-info">
+          <header class="entry-heading">
+            <h2 class="entry-title">{{book.title}}</h2>
+          </header><!-- .entry-heading -->
+
+          <div class="instructor-short-info flex flex-wrap">
+            <div class="instructors-stats">
+              <img [src]="(baseURL+book.coverurl)" alt="">
+
+            </div><!-- .instructors-stats -->
+
+            <div class="instructors-details">
+              <div class="entry-content mt-3">
+                <p>Hi! I'm Colt. I'm a developer with a serious love for teaching. I've spent the last few years
+                  teaching people to program at 2 different immersive bootcamps where I've helped hundreds of people
+                  become web developers and change their lives. My graduates work at companies like Google, Salesforce,
+                  and Square.</p>
+              </div><!-- .entry-content -->
+            </div><!-- .instructors-details -->
+          </div><!-- .instructor-short-info -->
+        </div>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th>Firstname</th>
+              <th>Lastname</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>John</td>
+              <td>Doe</td>
+
+            </tr>
+            <tr>
+              <td>Mary</td>
+              <td>Moe</td>
+
+            </tr>
+            <tr>
+              <td>July</td>
+              <td>Dooley</td>
+
+            </tr>
+          </tbody>
+        </table>
+      </div><!-- .col -->
+      <div class="col-12">
+        <header class="heading flex center-content-center align-items-center">
+          <a class="btn mt-4 mt-sm-0" href="#">Download Ebook {{book.title}}</a>
+        </header>
+      </div>
+      <div class="col-12" *ngIf="rbooks">
+        <div class="related-courses">
+          <header class="entry-heading flex flex-wrap justify-content-between align-items-center">
+            <h2 class="entry-title">Related Ebooks</h2>
+          </header><!-- .entry-heading -->
+
+          <div class="row mx-m-25">
+            <div class="col-12 col-lg-6 px-25">
+              <div class="course-content">
+
+                <div class="course-content-wrap">
+                  <header class="entry-header">
+                    <h2 class="entry-title"><a href="#">The Complete Digital Marketing Course</a></h2>
+
+                    <div class="entry-meta flex flex-wrap align-items-center">
+                      <div class="course-author"><a href="#">Ms. Lucius</a></div>
+
+                      <div class="course-date">Dec 18, 2018</div>
+                      <figure class="course-thumbnail">
+                        <a href="#"><img [src]=(baseURL+rbooks[0].coverurl) alt="rbooks[0].title"></a>
+                      </figure><!-- .course-thumbnail -->
+
+                    </div><!-- .course-date -->
+                  </header><!-- .entry-header -->
+
+                </div><!-- .course-content-wrap -->
+              </div><!-- .course-content -->
+            </div><!-- .col -->
+
+            <div class="col-12 col-lg-6 px-25">
+              <div class="course-content">
+
+
+                <div class="course-content-wrap">
+                  <header class="entry-header">
+                    <h2 class="entry-title"><a href="#">The Ultimate Drawing Course Beginner to Advanced</a></h2>
+
+                    <div class="entry-meta flex flex-wrap align-items-center">
+                      <div class="course-author"><a href="#">Michelle Golden</a></div>
+
+                      <div class="course-date">Mar 14, 2018</div>
+                      <figure class="course-thumbnail">
+                        <a href="#"><img [src]="(baseURL+rbooks[1].coverurl)" alt="rbooks[1].title"></a>
+                      </figure><!-- .course-thumbnail -->
+                    </div><!-- .course-date -->
+                  </header><!-- .entry-header -->
+                </div><!-- .course-content-wrap -->
+              </div><!-- .course-content -->
+            </div><!-- .col -->
+          </div><!-- .row -->
+        </div>
+      </div>
+
+    </div><!-- .col -->
+    <div class="col-12 col-lg-4">
+      <app-side-bar></app-side-bar>
+    </div><!-- .col -->
+  </div><!-- .row -->
+</div><!-- .container -->

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
@@ -15,6 +15,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database'
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
+import { SpinnerComponent } from './ui/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -24,10 +25,12 @@ import { environment } from '../environments/environment';
     FooterComponent,
     BooksComponent,
     BookDetailComponent,
-    SideBarComponent
+    SideBarComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase, 'ebooksden-4c77a'), // imports firebase/app needed for everything
     AngularFireDatabaseModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,

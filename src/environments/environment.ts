@@ -11,7 +11,8 @@ export const environment = {
     projectId: "ebooksden-4c77a",
     storageBucket: "ebooksden-4c77a.appspot.com",
     messagingSenderId: "690754521255"
-  }
+  },
+  externalPath:'http://libgen.io/'
 };
 
 /*

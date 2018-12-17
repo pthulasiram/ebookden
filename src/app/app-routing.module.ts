@@ -5,13 +5,18 @@ import { BookDetailComponent } from './books/book-detail/book-detail.component';
 import { MainComponent } from './main/main.component';
 
 const routes: Routes = [
-  {path:'', component:MainComponent},
-  {path:'books', component:BookDetailComponent},
+  { path: '', component: MainComponent },
+  {
+    path: 'books/:id', component: BookDetailComponent,
+    runGuardsAndResolvers: "always"
+  },
+
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: "reload" })],
+  exports: [RouterModule],
+
 })
 export class AppRoutingModule { }
